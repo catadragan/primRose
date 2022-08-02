@@ -1,0 +1,166 @@
+{
+  "bouquets": [
+    {
+      "src": "blue.jpg",
+      "size": "Large",
+      "color": ["blue", "white"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Pyramidal",
+      "flowers": ["Delphinium", "Hydrangea", "Stock", "Miniroses"],
+      "greenery": "Cinereea",
+      "wrapping": "wrapping",
+      "price": "50"
+    },
+    {
+      "src": "bluish.jpg",
+      "size": "Medium",
+      "color": ["blue", "white", "pink"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Heart",
+      "flowers": ["Delphinium", "Eustoma", "Hyacinth"],
+      "greenery": "No",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "burgundy.jpg",
+      "size": "Small",
+      "color": ["peach", "burgundy", "ivory"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Round",
+      "flowers": ["Carnation", "Roses"],
+      "greenery": "Cinereea",
+      "wrapping": "Wrapping",
+      "price": "20"
+    },
+    {
+      "src": "bouquet.jpg",
+      "size": "Small",
+      "color": ["white", "peach"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Round",
+      "flowers": ["Carnations", "Rose", "Hyacinth"],
+      "greenery": "Cinereea",
+      "wrapping": "Wrapping",
+      "price": "20"
+    },
+    {
+      "src": "hydraWhite.jpg",
+      "size": "small",
+      "color": "white",
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Round",
+      "flowers": ["Hydrangea"],
+      "greenery": "No",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "lila.jpg",
+      "size": "Medium",
+      "color": ["pink", "white", "peach"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Heart",
+      "flowers": ["Hydrangea", "Peony", "Eustoma", "Carnation"],
+      "greenery": "Cinereea",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "peach.jpg",
+      "size": "Medium",
+      "color": ["white", "peach"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Round",
+      "flowers": ["garden", "Rose", "Gerbera", "Eustoma"],
+      "greenery": "Cinereea",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "phalenopsis.jpg",
+      "size": "Large",
+      "color": ["white", "peach"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Round",
+      "flowers": ["Phalenopsis", "Rose", "Ranunculus", "Eustoma", "Carnation"],
+      "greenery": "Cinereea",
+      "wrapping": "Box",
+      "price": "30"
+    },
+    {
+      "src": "purple.jpg",
+      "size": "Large",
+      "color": ["purple", "white", "pink"],
+      "eventt": ["Easter", "Mother's day", "Graduation"],
+      "shape": "Heart",
+      "flowers": ["Garden", "Eustoma", "Stock", "Carnation", "Miniroses"],
+      "greenery": "No",
+      "wrapping": "Box",
+      "price": "30"
+    },
+    {
+      "src": "redBox.jpg",
+      "size": "Medium",
+      "color": "red",
+      "eventt": "Valentine",
+      "shape": "Asymmetric",
+      "flowers": ["Rose"],
+      "greenery": ["Cinereea", "Pistachia"],
+      "wrapping": "Box",
+      "price": "30"
+    },
+    {
+      "src": "roses.jpg",
+      "size": "Large",
+      "color": "pink",
+      "eventt": ["Easter", "Mother's day", "Graduation", "Valentine"],
+      "shape": "Round",
+      "flowers": ["Rose"],
+      "greenery": "Cinereea",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "salmon.jpg",
+      "size": "Medium",
+      "color": "salmon",
+      "eventt": ["Easter", "Mother's day", "Graduation", "Valentine"],
+      "shape": "Round",
+      "flowers": ["Anemone"],
+      "greenery": "No",
+      "wrapping": "Wrapping",
+      "price": "30"
+    },
+    {
+      "src": "springBox.jpg",
+      "size": "Large",
+      "color": ["blue", "pink", "peach", "white"],
+      "eventt": ["Easter", "Mother's day", "Graduation", "Valentine"],
+      "shape": "Heart",
+      "flowers": [
+        "Rose",
+        "Ranunculus",
+        "Hydrangea",
+        "Carnation",
+        "Garden",
+        "Stock",
+        "Minirose"
+      ],
+      "greenery": "Pistachia",
+      "wrapping": "Box",
+      "price": "30"
+    },
+    {
+      "src": "whitePeonies.jpg",
+      "size": "Large",
+      "color": "white",
+      "eventt": ["Easter", "Mother's day", "Graduation", "Valentine"],
+      "shape": "Round",
+      "flowers": ["Peony"],
+      "greenery": "Dusty",
+      "wrapping": "Wrapping",
+      "price": "30"
+    }
+  ]
+}
