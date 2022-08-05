@@ -4,12 +4,10 @@ import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Typography } from "@mui/material";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
-
-const Delivery = () => {
+const Delivery = ({activeTab, setActiveTab}) => {
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar />
       <Typography>
         Our standard delivery fees apply to orders for addresses anywhere in the
         U.S. or Canada. Please note that there may be additional charges for

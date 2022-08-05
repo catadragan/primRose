@@ -4,12 +4,12 @@ import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Typography, Paper } from "@mui/material";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
 
-const About = () => {
+
+const About = ({activeTab, setActiveTab}) => {
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar activeTab={activeTab}  />
       <CarouselComp />
       <Paper
         component="p"

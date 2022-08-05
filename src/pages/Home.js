@@ -3,14 +3,14 @@ import Navbar from "../components/Navbar";
 import CarouselComp from "../components/CarouselComp";
 import Footer from '../components/Footer';
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
 
 
-const Home = () => {
+
+const Home = ({activeTab, setActiveTab}) => {
   return (
     <div>
       homepage
-      <Navbar links={linksArray} />
+      <Navbar activeTab={activeTab} />
       <CarouselComp/>
       <CarouselComp/>
       <Footer/>

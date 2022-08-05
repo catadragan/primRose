@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
@@ -9,11 +10,14 @@ import Delivery from "./pages/Delivery";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import ShoppingCart from "./pages/ShoppingCart";
+
 //import theme from "./theme";
 
 //const primary = "#C0D7B0";
 //const accent = "#A0CAA2";
 
+export const CartStore = React.createContext([]);
 const theme = createTheme({
   palette: {
     primary: {
@@ -35,29 +39,81 @@ const theme = createTheme({
 });
 
 const App = () => {
+
+  const [activeTab, setActiveTab] = useState(0);
+   
+  const addToCart = (bouquet, cartItems) => {
+    console.log("random", cartItems);
+    let newCartItems = cartItems;
+    const exist = cartItems.find((x) => x.id === bouquet.id);
+
+    if (exist) {
+      console.log(exist);
+      newCartItems = cartItems.map((x) => {
+        return x.id === bouquet.id ? { ...exist, qty: exist.qty + 1 } : x; //change quantity (+)
+      });
+    } else {
+      newCartItems = [...cartItems, { ...bouquet, qty: 1 }];
+    }
+
+    // setCartStoreState({
+    //   cartItems: newCartItems,
+    // });
+
+    setCartStoreState((prevState) => ({
+      ...prevState,
+      cartItems: newCartItems,
+    }));
+  };
+
+  const [cartStoreState, setCartStoreState] = useState({
+    cartItems: [],
+    addToCart: addToCart,
+  });
+
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Shop2 />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/shop2">
-            <Shop2 />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <CartStore.Provider value={cartStoreState}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route exact path="/shopping-cart">
+              <ShoppingCart activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/shop2">
+              <Shop2 activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/home">
+              <Home activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/shop">
+              <Shop activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+
+            
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </CartStore.Provider>
   );
 };
 
 export default App;
+/*<Route path="/contact">
+              <Contact activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+           
+            <Route path="/about">
+              <About activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/cancelation">
+              <Cancelation activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/delivery">
+              <Delivery activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/privacy">
+              <Privacy activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route>
+            <Route path="/terms">
+              <Terms activeTab={activeTab} setActiveTab={setActiveTab}/>
+            </Route> */

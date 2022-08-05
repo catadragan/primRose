@@ -16,7 +16,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {useHistory} from 'react-router-dom'
 
-const Navbar = ({ links }) => {
+const linksArray = ["Home", "Shop","Shop2", "About", "Contact"];
+
+const Navbar = ({activeTab, setActiveTab}) => {
   const theme = useTheme();
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -24,7 +26,7 @@ const Navbar = ({ links }) => {
 
   const [value, setValue] = useState(0);
   const navigator = useHistory();
-
+  console.log("NAVBAR", activeTab);
   return (
     <AppBar>
       <Toolbar>
@@ -33,24 +35,24 @@ const Navbar = ({ links }) => {
             <Typography>
               <LocalFloristTwoToneIcon fontSize="large" />
             </Typography>
-            <DrawerComp links={links} />
+            <DrawerComp links={linksArray} />
           </>
         ) : (
           <Grid sx={{ placeItems: "center" }} container>
             <Grid item xs={2}>
               <Typography>
-                <LocalFloristTwoToneIcon fontSize="large" />
+                <LocalFloristTwoToneIcon fontSize="large" onClick= {(e, val) => {navigator.push(`/home`)}}/>
               </Typography>
             </Grid>
             <Grid item xs={6}>
               <Tabs
                 indicatorColor="secondary"
                 textColor="inherit"
-                value={value}
-                onChange={(e, val) => {setValue(val); navigator.push(`/${links[val]}`)}}
+                value={activeTab}
+                onChange={(e, val) => {setActiveTab(val);  navigator.push(`/${linksArray[val]}`)}}
                 
               >
-                {links.map((link, index) => (
+                {linksArray.map((link, index) => (
                   <Tab key={index} label={link} onClick={(e,bla)=> ( console.log(e))}/>
                 ))}
               </Tabs>
@@ -65,6 +67,7 @@ const Navbar = ({ links }) => {
                 <ShoppingCartIcon
                   lg={{ marginLeft: "auto", background: "#FAAD89" }}
                   variant="contained"
+                  onClick= {(e, val) => {navigator.push(`/shopping-cart`)}}
                 />
               </Box>
             </Grid>

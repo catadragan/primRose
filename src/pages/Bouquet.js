@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Bouquet = () => {
+const Bouquet = ({activeTab, setActiveTab}) => {
   return (
     <div>
-      
+       
     </div>
   )
 }

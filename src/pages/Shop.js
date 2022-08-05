@@ -48,7 +48,7 @@ const useStyles = makeStyles({
   },
 });
 */
-const linksArray = ["Home", "Shop", "About", "Contact"];
+
 
 const StyledTextField = styled(TextField)({
   "&.MuiTextField-root": {
@@ -67,7 +67,7 @@ const StyledButtonGroup = styled(ButtonGroup)({
   },
 });
 
-function Shop() {
+function Shop({activeTab, setActiveTab}) {
   //const classes = useStyles();
   const [details, setDetails] = useState("");
   const [detailsError, setDetailsError] = useState(false);
@@ -109,7 +109,7 @@ function Shop() {
 
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar activeTab={activeTab} />
       <CarouselComp />
       <Container>
         <Typography variant="h2" color="primary" align="center">

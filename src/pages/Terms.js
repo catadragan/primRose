@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Typography } from "@mui/material";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
 
-const Terms = () => {
+
+const Terms = ({activeTab, setActiveTab}) => {
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar  />
 
       <Typography variant="h1">VARIATION IN PRODUCT</Typography>
       <Typography variant="body1">

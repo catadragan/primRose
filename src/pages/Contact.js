@@ -29,7 +29,7 @@ import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
+
 
 const StyledTextField = styled(TextField)({
   "&.MuiTextField-root": {
@@ -42,7 +42,7 @@ const StyledButton = styled(Button)({
   },
 });
 
-const Contact = () => {
+const Contact = ({activeTab, setActiveTab}) => {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState(false);
 
@@ -59,7 +59,7 @@ const Contact = () => {
 
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar  />
       <CarouselComp />
       <Container>
         <Typography variant="h2" color="primary" align="center">

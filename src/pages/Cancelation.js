@@ -9,9 +9,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 //import theme from "../theme";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
 
-const Cancelation = () => {
+
+const Cancelation = ({activeTab, setActiveTab}) => {
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
 

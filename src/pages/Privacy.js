@@ -8,12 +8,12 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const linksArray = ["Home", "Shop", "About", "Contact"];
 
-const Privacy = () => {
+
+const Privacy = ({activeTab, setActiveTab}) => {
   return (
     <div>
-      <Navbar links={linksArray} />
+      <Navbar  />
 
       <Typography>
         This privacy statement has been created in order to demonstrate our firm
