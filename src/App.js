@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ShoppingCart from "./pages/ShoppingCart";
+import './App.css'
 
 //import theme from "./theme";
 
@@ -39,9 +40,8 @@ const theme = createTheme({
 });
 
 const App = () => {
-
   const [activeTab, setActiveTab] = useState(0);
-   
+
   const addToCart = (bouquet, cartItems) => {
     console.log("random", cartItems);
     let newCartItems = cartItems;
@@ -55,11 +55,7 @@ const App = () => {
     } else {
       newCartItems = [...cartItems, { ...bouquet, qty: 1 }];
     }
-
-    // setCartStoreState({
-    //   cartItems: newCartItems,
-    // });
-
+    
     setCartStoreState((prevState) => ({
       ...prevState,
       cartItems: newCartItems,
@@ -76,20 +72,39 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path="/shopping-cart">
-              <ShoppingCart activeTab={activeTab} setActiveTab={setActiveTab}/>
+          <Route exact path="/">
+              <Home activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-            <Route path="/shop2">
-              <Shop2 activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <Route  path="/home">
+              <Home activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-            <Route path="/home">
-              <Home activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <Route path="/shopping-cart">
+              <ShoppingCart activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
             <Route path="/shop">
-              <Shop activeTab={activeTab} setActiveTab={setActiveTab}/>
+              <Shop activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-
-            
+            <Route path="/shop2">
+              <Shop2 activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/about">
+              <About activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/contact">
+              <Contact activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/cancelation">
+              <Cancelation activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/delivery">
+              <Delivery activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/privacy">
+              <Privacy activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
+            <Route path="/terms">
+              <Terms activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Route>
           </Switch>
         </Router>
       </ThemeProvider>
@@ -98,22 +113,4 @@ const App = () => {
 };
 
 export default App;
-/*<Route path="/contact">
-              <Contact activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route>
-           
-            <Route path="/about">
-              <About activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route>
-            <Route path="/cancelation">
-              <Cancelation activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route>
-            <Route path="/delivery">
-              <Delivery activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route>
-            <Route path="/privacy">
-              <Privacy activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route>
-            <Route path="/terms">
-              <Terms activeTab={activeTab} setActiveTab={setActiveTab}/>
-            </Route> */
+/**/

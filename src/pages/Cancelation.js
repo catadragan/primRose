@@ -18,8 +18,8 @@ const Cancelation = ({activeTab, setActiveTab}) => {
   
 
   return (
-    <div>
-      <Navbar links={linksArray} />
+    <div className="page-content">
+      <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
       <ThemeProvider theme={theme}>
         <Typography variant="subtitle">Cancelation policy</Typography>
         <Typography variant="body1">

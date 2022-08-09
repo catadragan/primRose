@@ -2,15 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
-import { Typography, Paper } from "@mui/material";
+import { Typography, Paper, CardContent } from "@mui/material";
 
-
-
-const About = ({activeTab, setActiveTab}) => {
+const About = ({ activeTab, setActiveTab }) => {
   return (
-    <div>
-      <Navbar activeTab={activeTab}  />
-      <CarouselComp />
+    <div className="page-content">
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+     
+
       <Paper
         component="p"
         sx={{ background: "#F6C7A5", padding: 5 }}

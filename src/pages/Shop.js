@@ -2,26 +2,39 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
-import { Typography, Button, ButtonGroup, Container } from "@mui/material";
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
-import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import {
+  Typography,
+  Button,
+  ButtonGroup,
+  Container,
   Box,
   Stack,
-  IconButton,
   TextField,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormLabel,
-  FormControl,
   MenuItem,
 } from "@mui/material";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import { styled } from "@mui/system";
 import { CirclePicker } from "react-color";
 
+const colorsList = [
+  "#e91e63",
+  "#9c27b0",
+  "#F6CB16",
+  "#ff5722",
+  "#ED0000",
+  "#890620",
+
+  "#F1EBDE",
+  "#EAD2AC",
+  "#F4A47D",
+  "#f44336",
+  "#C65B7C",
+  "#A4778B",
+];
+
 //import { makeStyles } from "@mui/material/styles";
-//import { makeStyles } from "@mui/material";
+//import { makeSyles } from "@mui/material";
 //import { makeStyles } from "@mui/styles";
 
 /*
@@ -49,7 +62,6 @@ const useStyles = makeStyles({
 });
 */
 
-
 const StyledTextField = styled(TextField)({
   "&.MuiTextField-root": {
     margin: "10px",
@@ -67,7 +79,7 @@ const StyledButtonGroup = styled(ButtonGroup)({
   },
 });
 
-function Shop({activeTab, setActiveTab}) {
+function Shop({ activeTab, setActiveTab, bouquet}) {
   //const classes = useStyles();
   const [details, setDetails] = useState("");
   const [detailsError, setDetailsError] = useState(false);
@@ -76,7 +88,7 @@ function Shop({activeTab, setActiveTab}) {
   const [flowers, setFlowers] = useState([]);
   const [greenery, setGreenery] = useState("");
   const [wrapping, setWrapping] = useState("");
-  const [color, setColor] = useState("#fff");
+  const [selectedColor, setSelectedColor] = useState("#e91e63");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -88,7 +100,6 @@ function Shop({activeTab, setActiveTab}) {
       console.log(details);
     }
   };
-
   const handleChangeEventt = (event) => {
     setEventt(event.target.value);
     console.log(setEventt, eventt);
@@ -106,16 +117,20 @@ function Shop({activeTab, setActiveTab}) {
   const handleChangeWrapping = (event) => {
     setWrapping(event.target.value);
   };
+  function changeColor(color) {
+    setSelectedColor(color.hex);
+  }
 
+  
   return (
-    <div>
-      <Navbar activeTab={activeTab} />
-      <CarouselComp />
+    <div className="page-content">
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      
       <Container>
         <Typography variant="h2" color="primary" align="center">
           Customise your bouquet
         </Typography>
-        <Stack sx={{ border: "1px solid" }} direction="row">
+        <Stack direction="row">
           <Box
             sx={{
               backgroundColor: "secondary",
@@ -153,12 +168,16 @@ function Shop({activeTab, setActiveTab}) {
               </Typography>
 
               <CirclePicker
-                color={color}
-                onChange={(updatedColor) => setColor(updatedColor)}
+                width={"300px"}
+                circleSize={40}
+                circleSpacing={10}
+                colors={colorsList}
+                color={selectedColor}
+                //onChange={(updatedColor) => setColor(updatedColor)}
+                onChangeComplete={changeColor}
               />
 
               <br></br>
-
               <StyledTextField
                 label="Choose event"
                 select
@@ -313,3 +332,4 @@ function Shop({activeTab, setActiveTab}) {
 }
 
 export default Shop;
+

@@ -1,20 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
-import {
-  Box,
-  Stack,
-  IconButton,
-  TextField,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormLabel,
-  FormControl,
-  MenuItem,
-} from "@mui/material";
+import { Box, Stack, IconButton, TextField } from "@mui/material";
 
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -28,8 +17,7 @@ import Navbar from "../components/Navbar";
 import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-
-
+import emailjs from "@emailjs/browser";
 
 const StyledTextField = styled(TextField)({
   "&.MuiTextField-root": {
@@ -42,9 +30,10 @@ const StyledButton = styled(Button)({
   },
 });
 
-const Contact = ({activeTab, setActiveTab}) => {
+const Contact = ({ activeTab, setActiveTab }) => {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState(false);
+  const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,28 +46,62 @@ const Contact = ({activeTab, setActiveTab}) => {
     }
   };
 
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "catad9532@gmail.com",
+        "template_pwe2nmm",
+        form.current,
+        "nkN2ZAuzPCV5xm02z"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  }
+
   return (
-    <div>
-      <Navbar  />
-      <CarouselComp />
+    <div className="page-content">
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+   
       <Container>
         <Typography variant="h2" color="primary" align="center">
           Contact us
         </Typography>
-        <Stack sx={{ border: "1px solid" }} direction="row">
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={3}
+          
+        >
           <br></br>
-          <form noValidate autoComplete="off">
+          <form noValidate autoComplete="off" onSubmit={sendEmail} ref={form}>
             <Container>
-              <StyledTextField label="Your Name">Name</StyledTextField>
+              <StyledTextField label="Your Name" name="name">
+                Name
+              </StyledTextField>
               <br></br>
-              <StyledTextField label="Your Email">Email</StyledTextField>
+              <StyledTextField label="Your Email" name="email">
+                Email
+              </StyledTextField>
               <br></br>
-              <StyledTextField label="Your Phone">Phone</StyledTextField>
+              <StyledTextField label="Your Phone" name="phone">
+                Phone
+              </StyledTextField>
               <br></br>
               <br></br>
               <StyledTextField
                 onChange={(e) => setMessage(e.target.value)}
                 label="Message"
+                name="message"
                 variant="outlined"
                 color="secondary"
                 fullWidth
@@ -95,7 +118,36 @@ const Contact = ({activeTab, setActiveTab}) => {
               >
                 Send
               </StyledButton>
-              <br></br>
+            </Container>
+          </form>
+
+          <Box
+            sx={{
+              backgroundColor: "secondary",
+              height: "500px",
+              width: "500px",
+              padding: "16px",
+            }}
+            component="img"
+            lx={{
+              height: 233,
+              width: 350,
+              maxHeight: { xs: 233, md: 167 },
+              maxWidth: { xs: 350, md: 250 },
+            }}
+            alt="Your bouquet might look like this one."
+            src="https://i.pinimg.com/564x/31/b0/35/31b035232998b0cf4f34feea416db211.jpg"
+          />
+        </Stack>
+      </Container>
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;
+/*
+<br></br>
               <IconButton aria-label="location">
                 <LocationOnOutlinedIcon />
               </IconButton>
@@ -126,31 +178,5 @@ const Contact = ({activeTab, setActiveTab}) => {
               <IconButton aria-label="pinterest">
                 <PinterestIcon />
               </IconButton>
-            </Container>
-          </form>
-
-          <Box
-            sx={{
-              backgroundColor: "secondary",
-              height: "500px",
-              width: "500px",
-              padding: "16px",
-            }}
-            component="img"
-            lx={{
-              height: 233,
-              width: 350,
-              maxHeight: { xs: 233, md: 167 },
-              maxWidth: { xs: 350, md: 250 },
-            }}
-            alt="Your bouquet might look like this one."
-            src="https://i.pinimg.com/564x/31/b0/35/31b035232998b0cf4f34feea416db211.jpg"
-          />
-        </Stack>
-      </Container>
-      <Footer />
-    </div>
-  );
-};
-
-export default Contact;
+        
+*/

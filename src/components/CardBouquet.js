@@ -10,11 +10,11 @@ import {
   IconButton,
   CardMedia,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
+import { styled } from "@mui/material/styles";
 import { CartStore } from "../App";
 
 const ExpandMore = styled((props) => {
@@ -36,19 +36,15 @@ const CardBouquet = ({ bouquet }) => {
     setExpanded(!expanded);
   };
 
-  //const [cartItems, setCartItems] = useState();
-
-
-
   return (
     <CartStore.Consumer>
       {(contextState) => {
         console.log(contextState);
         let cartItems = contextState.cartItems;
         let addToCart = contextState.addToCart;
-        console.log("alterandom",cartItems);
+        
         return (
-          <Box xwidth="300px">
+          <Box >
             <Card >
               <CardActionArea>
                 <CardMedia

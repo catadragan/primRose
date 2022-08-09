@@ -20,13 +20,13 @@ const linksArray = ["Home", "Shop","Shop2", "About", "Contact"];
 
 const Navbar = ({activeTab, setActiveTab}) => {
   const theme = useTheme();
-  console.log(theme);
+  
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
+
 
   const [value, setValue] = useState(0);
   const navigator = useHistory();
-  console.log("NAVBAR", activeTab);
+
   return (
     <AppBar>
       <Toolbar>
@@ -53,7 +53,7 @@ const Navbar = ({activeTab, setActiveTab}) => {
                 
               >
                 {linksArray.map((link, index) => (
-                  <Tab key={index} label={link} onClick={(e,bla)=> ( console.log(e))}/>
+                  <Tab key={index} label={link} />
                 ))}
               </Tabs>
             </Grid>

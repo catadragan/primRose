@@ -6,8 +6,8 @@ import { Typography } from "@mui/material";
 
 const Delivery = ({activeTab, setActiveTab}) => {
   return (
-    <div>
-      <Navbar />
+    <div className="page-content">
+      <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
       <Typography>
         Our standard delivery fees apply to orders for addresses anywhere in the
         U.S. or Canada. Please note that there may be additional charges for

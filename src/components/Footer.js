@@ -10,7 +10,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useHistory } from "react-router-dom";
 
-const Footer = ({links}) => {
+const Footer = ({ links }) => {
   /*  const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -22,21 +22,18 @@ const Footer = ({links}) => {
   };
 */
 
-const navigator = useHistory();
+  const navigator = useHistory();
 
   return (
-    <div>
+    <div className="footer">
       <Box sx={{ bgcolor: "#F5D9B6", color: "black" }}>
-        <Container links={links} maxWidth="lg" sx={{ py: 5 }}>
-          <Grid container spacing={4} >
+        <Container links={links} maxWidth="lg" sx={{ py: 2 }}>
+          <Grid container spacing={4}>
             <Grid item xs={6} md={3}>
-              <Stack spacing={2} >
-              <Typography>MENU</Typography>
+              <Stack spacing={2}>
+                <Typography>MENU</Typography>
 
-             
-
-                
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
@@ -45,7 +42,7 @@ const navigator = useHistory();
                     Cancellation policy
                   </Link>
                 </Typography>
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
@@ -54,7 +51,7 @@ const navigator = useHistory();
                     Local delivery
                   </Link>
                 </Typography>
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
@@ -63,7 +60,7 @@ const navigator = useHistory();
                     Privacy policy
                   </Link>
                 </Typography>
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
@@ -75,7 +72,7 @@ const navigator = useHistory();
               </Stack>
             </Grid>
             <Grid item xs={6} md={3}>
-              <Stack spacing={2}>
+              <Stack spacing={.5}>
                 <Typography>PAGES</Typography>
                 <Typography variant="body1">
                   <Link
@@ -99,7 +96,7 @@ const navigator = useHistory();
                   </Link>
                 </Typography>
 
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
@@ -119,7 +116,7 @@ const navigator = useHistory();
                   </Link>
                 </Typography>
 
-                <Typography variant="body1" >
+                <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}

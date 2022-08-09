@@ -12,8 +12,8 @@ import Footer from "../components/Footer";
 
 const Privacy = ({activeTab, setActiveTab}) => {
   return (
-    <div>
-      <Navbar  />
+    <div className="page-content">
+      <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
 
       <Typography>
         This privacy statement has been created in order to demonstrate our firm

@@ -14,9 +14,9 @@ const Shop2 = ({activeTab, setActiveTab}) => {
     <CartStore.Consumer>
       {({ cartItems }) => {
         return (
-          <div>
-            <Navbar activeTab={activeTab}/>
-            <CarouselComp />
+          <div className="page-content">
+            <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
+           
 
             <Grid  justifyContent="center"  container spacing={20}>
               {data.bouquets.map((bouquet) => (

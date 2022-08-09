@@ -15,8 +15,8 @@ const CarouselComp = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Looking for the perfect bouquet?</h3>
+          <p>We got you!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item >
@@ -27,8 +27,8 @@ const CarouselComp = () => {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Design your own floral bouquet!</h3>
+          <p>You can choose your size, color, flowers and many more.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -39,9 +39,9 @@ const CarouselComp = () => {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Ready-To-Go floral bouquets</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+           Pre-made floral arrangements are already arranged and ready to be picked up. 
           </p>
         </Carousel.Caption>
       </Carousel.Item>

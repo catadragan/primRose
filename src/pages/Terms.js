@@ -7,8 +7,8 @@ import { Typography } from "@mui/material";
 
 const Terms = ({activeTab, setActiveTab}) => {
   return (
-    <div>
-      <Navbar  />
+    <div className="page-content">
+      <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
 
       <Typography variant="h1">VARIATION IN PRODUCT</Typography>
       <Typography variant="body1">
