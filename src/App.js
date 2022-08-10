@@ -13,10 +13,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ShoppingCart from "./pages/ShoppingCart";
 import './App.css'
 
-//import theme from "./theme";
 
-//const primary = "#C0D7B0";
-//const accent = "#A0CAA2";
 
 export const CartStore = React.createContext([]);
 const theme = createTheme({
@@ -113,4 +110,4 @@ const App = () => {
 };
 
 export default App;
-/**/
+

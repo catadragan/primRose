@@ -135,8 +135,8 @@ const Contact = ({ activeTab, setActiveTab }) => {
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 250 },
             }}
-            alt="Your bouquet might look like this one."
-            src="https://i.pinimg.com/564x/31/b0/35/31b035232998b0cf4f34feea416db211.jpg"
+            alt="envelope picture"
+            src="https://i.pinimg.com/564x/38/32/f0/3832f08f00fed68408190054492de2ef.jpg"
           />
         </Stack>
       </Container>

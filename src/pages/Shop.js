@@ -17,7 +17,7 @@ import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import { styled } from "@mui/system";
 import { CirclePicker } from "react-color";
 
-const colorsList = [
+/*const colorsList = [
   "#e91e63",
   "#9c27b0",
   "#F6CB16",
@@ -31,7 +31,22 @@ const colorsList = [
   "#f44336",
   "#C65B7C",
   "#A4778B",
-];
+];*/
+const colorsListHash = {
+  "pink": "#e91e63",
+  "purple": "#9c27b0",
+  "yellow": "#F6CB16",
+  "orange":"#ff5722",
+  "red":"#ED0000",
+  "burgundy":"#890620",
+
+  "white":"#F1EBDE",
+  "cream":"#EAD2AC",
+  "peach":"#F4A47D",
+  "salmon":"#f44336",
+  "dustyPink":"#C65B7C",
+  "dustyPurple":"#A4778B"
+};
 
 //import { makeStyles } from "@mui/material/styles";
 //import { makeSyles } from "@mui/material";
@@ -171,7 +186,7 @@ function Shop({ activeTab, setActiveTab, bouquet}) {
                 width={"300px"}
                 circleSize={40}
                 circleSpacing={10}
-                colors={colorsList}
+                colors={colorsListHash}
                 color={selectedColor}
                 //onChange={(updatedColor) => setColor(updatedColor)}
                 onChangeComplete={changeColor}
@@ -223,9 +238,8 @@ function Shop({ activeTab, setActiveTab, bouquet}) {
                 <MenuItem value="Alstroemeria">Alstroemeria</MenuItem>
                 <MenuItem value="Amaryllis">Amaryllis</MenuItem>
                 <MenuItem value="Anemone">Anemone</MenuItem>
-                <MenuItem value="Carnation">Carnation</MenuItem>
                 <MenuItem value="Calla">Calla Lily</MenuItem>
-                <MenuItem value="Carnations">Carnations</MenuItem>
+                <MenuItem value="Carnation">Carnations</MenuItem>
                 <MenuItem value="Chrysanthemum">Chrysanthemum</MenuItem>
                 <MenuItem value="Cymbidium">Cymbidium</MenuItem>
                 <MenuItem value="Daffodils">Daffodils</MenuItem>
@@ -283,12 +297,12 @@ function Shop({ activeTab, setActiveTab, bouquet}) {
                 onChange={handleChangeWrapping}
                 fullWidth
               >
-                <MenuItem value="Basket"></MenuItem>
+                
                 <MenuItem value="Box">Box</MenuItem>
                 <MenuItem value="Ribbon">Ribbon</MenuItem>
                 <MenuItem value="Vase">Vase</MenuItem>
                 <MenuItem value="Wrapping">Wrapping</MenuItem>
-                <MenuItem value="Wood box"></MenuItem>
+                
               </StyledTextField>
 
               <br></br>

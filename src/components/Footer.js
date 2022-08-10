@@ -28,16 +28,18 @@ const Footer = ({ links }) => {
     <div className="footer">
       <Box sx={{ bgcolor: "#F5D9B6", color: "black" }}>
         <Container links={links} maxWidth="lg" sx={{ py: 2 }}>
-          <Grid container spacing={4}>
+          <Grid container  justifyContent="center" spacing={4}>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography>MENU</Typography>
+                <Typography fontWeight= "bold">MENU</Typography>
 
                 <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/cancelation`)}}                    
                   >
                     Cancellation policy
                   </Link>
@@ -47,6 +49,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/delivery`)}} 
                   >
                     Local delivery
                   </Link>
@@ -56,6 +60,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/privacy`)}} 
                   >
                     Privacy policy
                   </Link>
@@ -65,6 +71,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/terms`)}} 
                   >
                     Terms and conditions
                   </Link>
@@ -73,12 +81,14 @@ const Footer = ({ links }) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Stack spacing={.5}>
-                <Typography>PAGES</Typography>
+                <Typography fontWeight= "bold">PAGES</Typography>
                 <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/home`)}} 
                     //onMouseEnter={handleMouseEnter}
                     // onMouseLeave={handleMouseLeave}
                   >
@@ -91,6 +101,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/shop`)}} 
                   >
                     Customable Bouquets
                   </Link>
@@ -101,6 +113,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/shop2`)}} 
                   >
                     Bouquets
                   </Link>
@@ -111,6 +125,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/about`)}} 
                   >
                     About us
                   </Link>
@@ -121,6 +137,8 @@ const Footer = ({ links }) => {
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
+                    onClick={(e, val) => {
+                      navigator.push(`/contact`)}} 
                   >
                     Contact us
                   </Link>
@@ -129,7 +147,7 @@ const Footer = ({ links }) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography>OPENING HOURS</Typography>
+                <Typography fontWeight= "bold">OPENING HOURS</Typography>
                 <Typography variant="body1">
                   Monday - Friday : 08:00 - 18:00
                 </Typography>
@@ -141,7 +159,7 @@ const Footer = ({ links }) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography>CONTACT US </Typography>
+                <Typography fontWeight= "bold">CONTACT US </Typography>
                 <Typography variant="body1">
                   <LocationOnOutlinedIcon />
                   Str. Rosseti nr. 25
@@ -155,7 +173,7 @@ const Footer = ({ links }) => {
                   0742058648
                 </Typography>
 
-                <Typography>FOLLOW US</Typography>
+                <Typography fontWeight= "bold">FOLLOW US</Typography>
                 <Typography variant="body1">
                   <Link
                     color="inherit"
@@ -194,7 +212,7 @@ const Footer = ({ links }) => {
             {"Copyright © "}
             <Link color="inherit" href="#">
               Primrose floral design
-            </Link>{" "}
+            </Link>
             {new Date().getFullYear()}
             {"."}
           </Typography>
@@ -205,16 +223,3 @@ const Footer = ({ links }) => {
 };
 
 export default Footer;
-
-//routin footer
-/*{links.map((link, index) => (
-  <Typography variant="body1" key={index} label={link} onClick={(e,bla)=> ( console.log(e))}>
-    <Link
-    color="inherit"
-    style={{ textDecoration: "none" }}
-    href="#"
-  >
-    Cancellation policy
-  </Link>
-</Typography>
-))}*/

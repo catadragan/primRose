@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
-import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import {
   Button,
@@ -12,16 +11,16 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-
-import { useContext } from "react";
 import { CartStore } from "../App";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 
+const deleteCartItems = () => {};
+const deleteBouquetType = () => {};
+
 const ShoppingCart = ({ activeTab, setActiveTab }) => {
-  console.log("text");
   return (
     <CartStore.Consumer>
       {({ cartItems, addToCart, removeFromCart }) => {
@@ -30,12 +29,14 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
             <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
             <div className="page-content">
               <Card
-                justify-content="center"
-                align="center"
                 sx={{ display: "flex", background: "#C0D7B0" }}
+                alignitems="center"
+                justifyContent="center"
+                height="64vh"
               >
                 {cartItems.length === 0 && <div>Shopping Cart is empty!</div>}
               </Card>
+
               {cartItems.length !== 0 && (
                 <Box sx={{ flexGrow: 1 }}>
                   <Grid container spacing={2}>
@@ -56,6 +57,7 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                   </Grid>
                 </Box>
               )}
+
               {cartItems.map((item) => (
                 <Card
                   justify-content="center"
@@ -75,7 +77,7 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                       >
                         <Box>
                           <IconButton sx={{ padding: 2 }}>
-                            <CloseIcon />
+                            <CloseIcon onClick={ () => deleteBouquetType(item, cartItems)}/>
                           </IconButton>
                         </Box>
                       </Grid>
@@ -162,6 +164,9 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                   </Box>
                 </Card>
               ))}
+              <Button type="submit" color="secondary" variant="contained">
+                finalizare
+              </Button>
             </div>
             <Footer />
           </div>

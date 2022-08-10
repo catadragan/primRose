@@ -20,10 +20,7 @@ const linksArray = ["Home", "Shop","Shop2", "About", "Contact"];
 
 const Navbar = ({activeTab, setActiveTab}) => {
   const theme = useTheme();
-  
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-
-
   const [value, setValue] = useState(0);
   const navigator = useHistory();
 
@@ -44,25 +41,23 @@ const Navbar = ({activeTab, setActiveTab}) => {
                 <LocalFloristTwoToneIcon fontSize="large" onClick= {(e, val) => {navigator.push(`/home`)}}/>
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8} justifyContent="center" alignItems="center">
               <Tabs
                 indicatorColor="secondary"
                 textColor="inherit"
                 value={activeTab}
                 onChange={(e, val) => {setActiveTab(val);  navigator.push(`/${linksArray[val]}`)}}
-                
               >
                 {linksArray.map((link, index) => (
                   <Tab key={index} label={link} />
                 ))}
               </Tabs>
             </Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={3}>
+            
+            <Grid item xs={2} justifyContent="center" alignItems="center">
               <Box display="flex">
                 <FavoriteBorderIcon
                   lg={{ marginLeft: "auto", background: "#FAAD89" }}
-                  
                 />
                 <ShoppingCartIcon
                   lg={{ marginLeft: "auto", background: "#FAAD89" }}

@@ -1,0 +1,454 @@
+{
+  "prices": [
+    {
+      "id": "1",
+      "name": "small",
+      "category": "size",
+      "price": "20"
+    },
+    {
+      "id": "2",
+      "name": "medium",
+      "category": "size",
+      "price": "30"
+    },
+    {
+      "id": "3",
+      "name": "large",
+      "category": "size",
+      "price": "50"
+    },
+    
+    {
+      "id": "4",
+      "name": "pink",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "5",
+      "name": "purple",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "6",
+      "name": "yellow",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "7",
+      "name": "orange",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "8",
+      "name": "red",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "9",
+      "name": "burgundy",
+      "category": "color",
+      "price": "10"
+    },
+    {
+      "id": "10",
+      "name": "white",
+      "category": "color",
+      "price": "5"
+    },
+    {
+      "id": "11",
+      "name": "cream",
+      "category": "color",
+      "price": "5"
+    },
+    {
+      "id": "12",
+      "name": "peach",
+      "category": "color",
+      "price": "5"
+    },
+    {
+      "id": "13",
+      "name": "salmon",
+      "category": "color",
+      "price": "5"
+    },
+    {
+      "id": "14",
+      "name": "dusty pink",
+      "category": "color",
+      "price": "5"
+    },
+    {
+      "id": "15",
+      "name": "dusty purple",
+      "category": "color",
+      "price": "5"
+    },
+    
+    {
+      "id": "16",
+      "name": "wedding",
+      "category": "event",
+      "price": "100"
+    },
+    {
+      "id": "17",
+      "name": "engagement",
+      "category": "event",
+      "price": "80"
+    },
+    {
+      "id": "18",
+      "name": "christmas",
+      "category": "event",
+      "price": "50"
+    },
+    {
+      "id": "19",
+      "name": "new eve",
+      "category": "event",
+      "price": "40"
+    },
+    {
+      "id": "20",
+      "name": "easter",
+      "category": "event",
+      "price": "30"
+    },
+    {
+      "id": "21",
+      "name": "valentines",
+      "category": "event",
+      "price": "50"
+    },
+    {
+      "id": "22",
+      "name": "mothers",
+      "category": "event",
+      "price": "30"
+    },
+    {
+      "id": "23",
+      "name": "graduation",
+      "category": "event",
+      "price": "30"
+    },
+    
+    {
+      "id": "24",
+      "name": "asymmetric",
+      "category": "shape",
+      "price": "30"
+    },
+    {
+      "id": "25",
+      "name": "heart",
+      "category": "shape",
+      "price": "30"
+    },
+    {
+      "id": "26",
+      "name": "pyramidal",
+      "category": "shape",
+      "price": "30"
+    },
+    {
+      "id": "27",
+      "name": "round",
+      "category": "shape",
+      "price": "20"
+    },
+    
+
+    {
+      "id": "28",
+      "name": "Alstroemeria",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "29",
+      "name": "Amaryllis",
+      "category": "flowers",
+      "price": "10"
+    },
+    {
+      "id": "30",
+      "name": "Anemone",
+      "category": "flowers",
+      "price": "6"
+    },
+    {
+      "id": "31",
+      "name": "Calla",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "32",
+      "name": "Carnation",
+      "category": "flowers",
+      "price": "2"
+    },
+    {
+      "id": "33",
+      "name": "Chrysanthemum",
+      "category": "flowers",
+      "price": "3"
+    },
+    {
+      "id": "34",
+      "name": "Cymbidium",
+      "category": "flowers",
+      "price": "10"
+    },
+    {
+      "id": "35",
+      "name": "Daffodils",
+      "category": "flowers",
+      "price": "6"
+    },
+    {
+      "id": "36",
+      "name": "Dahlia",
+      "category": "flowers",
+      "price": "10"
+    },
+    {
+      "id": "37",
+      "name": "Delphinium",
+      "category": "flowers",
+      "price": "10"
+    },
+    {
+      "id": "38",
+      "name": "Eustoma",
+      "category": "flowers",
+      "price": "6"
+    },
+    {
+      "id": "39",
+      "name": "Freesia",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "40",
+      "name": "Gerbera",
+      "category": "flowers",
+      "price": "3"
+    },
+    {
+      "id": "41",
+      "name": "Gladiolus",
+      "category": "flowers",
+      "price": "6"
+    },
+    {
+      "id": "42",
+      "name": "Hyacinth",
+      "category": "flowers",
+      "price": "4"
+    },
+    
+    {
+        "id": "43",
+        "name": "Hydrangea",
+        "category": "flowers",
+        "price": "15"
+      },
+    {
+      "id": "44",
+      "name": "Hypericum",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "45",
+      "name": "Iris",
+      "category": "flowers",
+      "price": "3"
+    },
+    {
+      "id": "46",
+      "name": "Lavender",
+      "category": "flowers",
+      "price": "2"
+    },
+    {
+      "id": "47",
+      "name": "Lilac",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "48",
+      "name": "Miniroses",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+      "id": "49",
+      "name": "Ornithogalum",
+      "category": "flowers",
+      "price": "5"
+    },
+    {
+      "id": "50",
+      "name": "Peony",
+      "category": "flowers",
+      "price": "5"
+    },
+    {
+      "id": "51",
+      "name": "Phalaenopsis",
+      "category": "flowers",
+      "price": "10"
+    },
+    {
+      "id": "52",
+      "name": "Ranunculus",
+      "category": "flowers",
+      "price": "5"
+    },
+    {
+      "id": "53",
+      "name": "Stock",
+      "category": "flowers",
+      "price": "5"
+    },
+    {
+      "id": "54",
+      "name": "Garden",
+      "category": "flowers",
+      "price": "6"
+    },
+    {
+      "id": "55",
+      "name": "Roses",
+      "category": "flowers",
+      "price": "5"
+    },
+    {
+      "id": "56",
+      "name": "Tulips",
+      "category": "flowers",
+      "price": "4"
+    },
+    {
+        "id": "57",
+        "name": "wax",
+        "category": "flowers",
+        "price": "4"
+      },
+
+
+
+{
+    "id": "58",
+    "name": "aspidistra",
+    "category": "greenery",
+    "price": "2"
+  },
+  {
+    "id": "59",
+    "name": "Cinereea",
+    "category": "greenery",
+    "price": "5"
+  },
+  {
+    "id": "60",
+    "name": "Populus",
+    "category": "greenery",
+    "price": "5"
+  },
+  {
+    "id": "61",
+    "name": "Dusty",
+    "category": "greenery",
+    "price": "5"
+  },
+  {
+    "id": "62",
+    "name": "Italian",
+    "category": "greenery",
+    "price": "4"
+  },
+  {
+    "id": "63",
+    "name": "Magnolia",
+    "category": "greenery",
+    "price": "6"
+  },
+  {
+    "id": "64",
+    "name": "Monstera",
+    "category": "greenery",
+    "price": "3"
+  },
+  {
+    "id": "65",
+    "name": "Olive",
+    "category": "greenery",
+    "price": "5"
+  },
+  {
+    "id": "66",
+    "name": "Pistachia",
+    "category": "greenery",
+    "price": "3"
+  },
+  {
+    "id": "67",
+    "name": "Ruscus",
+    "category": "greenery",
+    "price": "2"
+  },
+  {
+    "id": "68",
+    "name": "Salal",
+    "category": "greenery",
+    "price": "3"
+  },
+  {
+    "id": "69",
+    "name": "No",
+    "category": "greenery",
+    "price": "0"
+  },
+ 
+
+  
+  {
+    "id": "70",
+    "name": "Box",
+    "category": "wrapping",
+    "price": "20"
+  },
+  {
+    "id": "71",
+    "name": "Ribbon",
+    "category": "wrapping",
+    "price": "5"
+  },
+  {
+    "id": "72",
+    "name": "Vase",
+    "category": "wrapping",
+    "price": "40"
+  },
+  {
+    "id": "73",
+    "name": "Wrapping",
+    "category": "wrapping",
+    "price": "10"
+  }
+  ]
+}
