@@ -4,23 +4,36 @@ import Navbar from "../components/Navbar";
 import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import data from "../images/db.json";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { CartStore } from "../App";
 
-const Shop2 = ({activeTab, setActiveTab}) => {
-  console.log(data.bouquets);
+const Shop2 = ({ activeTab, setActiveTab }) => {
+  
 
   return (
     <CartStore.Consumer>
       {({ cartItems }) => {
         return (
           <div className="page-content">
-            <Navbar activeTab={activeTab}  setActiveTab={setActiveTab} />
-           
+            <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-            <Grid  justifyContent="center"  container spacing={20}>
+            <Typography
+              variant="h1"
+              display="flex"
+              justifyContent="center"
+              padding="5%"
+            >
+              Buy a pre-made bouquet
+            </Typography>
+            <Grid
+              justifyContent="center"
+              container
+              marginTop="5px"
+              marginBottom="10%"
+              spacing={20}
+            >
               {data.bouquets.map((bouquet) => (
-                <Grid item xs={12} md={4} key={bouquet.id}>
+                <Grid item xs={12} md={3.5} key={bouquet.id}>
                   <CardBouquet bouquet={bouquet} />
                 </Grid>
               ))}

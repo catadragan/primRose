@@ -1,0 +1,42 @@
+.home-container-about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.home-title-about {
+    text-align: center;
+}
+.home-content-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.home-about {
+    
+    height: 50%;
+    width: 50%;
+    padding: 10%;
+}
+.home-image-about {
+    height: 55rem;
+    width: 35rem;
+    
+
+}
+.home-text-about {
+    background-color: #FAAD89;
+    position: relative;
+    height: 20rem;
+    width: 80rem;
+    right: 15%;
+    
+   
+    
+}
+.home-paragraph-about {
+    top:50%;
+}

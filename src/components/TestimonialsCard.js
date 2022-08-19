@@ -1,23 +1,43 @@
 import React from "react";
 import { Card, CardContent, Typography, Avatar } from "@mui/material";
 
-const TestimonialsCard = () => {
+const TestimonialsCard = ({avatarImg, text, name, job}) => {
   return (
-    <Card>
+    <Card >
       <CardContent >
         <Avatar
-          sx={{ width: 56, height: 56 }}
-          src="http://i.pravatar.cc/300?img=4"
+        
+          sx={{ width: 56, height: 56, marginLeft:"40%"}}
+          //src="http://i.pravatar.cc/300?img=4"
+          //image={srcImg}
+          src={avatarImg}
         />
         <Typography variant="h4" gutterBottom>
-          "We are going to learn different kinds of species in nature that live
-          together to form amazing environment."
+        {text}
         </Typography>
-        <Typography variant="body1">Name of the customer</Typography>
-        <Typography variant="caption">Job of the customer</Typography>
+
+        <Typography variant="body1">{name}</Typography>
+        <Typography variant="caption">{job}</Typography>
       </CardContent>
     </Card>
   );
 };
 
 export default TestimonialsCard;
+{/* <Card >
+<CardContent >
+  <Avatar
+  
+    sx={{ width: 56, height: 56, marginLeft:"40%"}}
+    src="http://i.pravatar.cc/300?img=4"
+    //image={srcImg}
+    // src={avatarImg}
+  />
+  <Typography variant="h4" gutterBottom>
+    djkfglajsdflsdifhkdslfkjdshj
+  </Typography>
+
+  <Typography variant="body1">name</Typography>
+  <Typography variant="caption">job</Typography>
+</CardContent>
+</Card> */}

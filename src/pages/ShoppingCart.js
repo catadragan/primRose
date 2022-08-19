@@ -27,12 +27,17 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
         return (
           <div>
             <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-            <div className="page-content">
+            <div className="page-content" style={{ padding: "10%" }}>
               <Card
-                sx={{ display: "flex", background: "#C0D7B0" }}
-                alignitems="center"
-                justifyContent="center"
+                style={{
+                  background: "#C0D7B0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "5%"
+                }}
                 height="64vh"
+                
               >
                 {cartItems.length === 0 && <div>Shopping Cart is empty!</div>}
               </Card>
@@ -62,7 +67,11 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                 <Card
                   justify-content="center"
                   alignitems="center"
-                  sx={{ display: "flex", background: "#C0D7B0" }}
+                  sx={{
+                    display: "flex",
+                    background: "#C0D7B0",
+                    margin: "10px",
+                  }}
                   key={item.id}
                 >
                   <Box sx={{ flexGrow: 1 }}>
@@ -77,7 +86,9 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                       >
                         <Box>
                           <IconButton sx={{ padding: 2 }}>
-                            <CloseIcon onClick={ () => deleteBouquetType(item, cartItems)}/>
+                            <CloseIcon
+                              onClick={() => deleteBouquetType(item, cartItems)}
+                            />
                           </IconButton>
                         </Box>
                       </Grid>
@@ -164,8 +175,20 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                   </Box>
                 </Card>
               ))}
-              <Button type="submit" color="secondary" variant="contained">
-                finalizare
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                style={{
+                  margin: "10%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                  marginLeft: "50%",
+                }}
+              >
+                Place order
               </Button>
             </div>
             <Footer />
