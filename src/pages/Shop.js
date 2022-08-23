@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { CirclePicker } from "react-color";
 import Navbar from "../components/Navbar";
-import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
+import elements from "../components/Prices.json";
 import {
   Typography,
   Button,
@@ -13,11 +14,9 @@ import {
   MenuItem,
   Grid,
 } from "@mui/material";
+import { styled } from "@mui/system";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
-import { styled } from "@mui/system";
-import { CirclePicker } from "react-color";
-import elements from "../components/Prices.json";
 import shop1 from "../images/shop1.jpg";
 
 const colorsListHash = {
@@ -76,22 +75,28 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
   };
   const handleChangeEventt = (event) => {
     setEventt(event.target.value);
+    setSelectedHandler("event", event.target.value);
   };
   const handleChangeShape = (event) => {
     setShape(event.target.value);
+    setSelectedHandler("event", event.target.value);
   };
   const handleChangeFlowers = (event) => {
     const value = event.target.value;
     setFlowers(typeof value === "string" ? value.split(",") : value);
+    setSelectedHandler("event", event.target.value);
   };
   const handleChangeGreenery = (event) => {
     setGreenery(event.target.value);
+    setSelectedHandler("event", event.target.value);
   };
   const handleChangeWrapping = (event) => {
     setWrapping(event.target.value);
+    setSelectedHandler("event", event.target.value);
   };
   function changeColor(color) {
     setSelectedColor(color.hex);
+    setSelectedHandler("event", event.target.value);
   }
 
   const computeTotal = () => {
@@ -125,10 +130,14 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                         <Button
                           color="primary"
                           variant="contained"
-                          style={{ margin: "10px", padding: "10px 50px" }}
+                          style={{
+                            margin: "10px",
+                            padding: "10px 50px",
+                            fontSize: "1.2rem",
+                          }}
                           key={element.id}
                           onClick={() => {
-                            setSelectedHandler(element.category, element.id);
+                            setSelectedHandler(element.category, element.price);
                           }}
                         >
                           {element.name}
@@ -137,11 +146,6 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                     }
                   })}
                 </Box>
-
-                <br></br>
-                <Typography align="center" variant="body1">
-                  Choose the color for your bouquet.
-                </Typography>
 
                 <Box
                   display="flex"
@@ -157,7 +161,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                     color={selectedColor}
                     alignItems="center"
                     justifyItems="center"
-                    marginLeft="30pxs"
+                    style={{ marginLeft: "40px" }}
                     //onChange={(updatedColor) => setColor(updatedColor)}
                     onChangeComplete={changeColor}
                   />
@@ -176,7 +180,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                       return (
                         <MenuItem
                           key={element.id}
-                          value={element.id}
+                          value={element.price}
                           name={element.name}
                         >
                           {element.name}
@@ -184,7 +188,6 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                       );
                     }
                   })}
-
                   {/* <MenuItem value="Wedding">Wedding</MenuItem>
                   <MenuItem value="Engagement">Engagement</MenuItem>
                   <MenuItem value="Christmas">Christmas</MenuItem>
@@ -234,16 +237,29 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                     multiple: true,
                   }}
                 >
-                  {elements.prices.map((element) => {
+                 {elements.prices.map((element) => {
                     if (element.category === "flowers") {
+                      let sumTotal = 0;
+                      sumTotal = sumTotal +  element.price;
+                      // const names =  new Array([]);
+                      //Array.push(element.name);
+                      return (
+                        <MenuItem
+                          key={element.id}
+                          value={sumTotal}
+                          name={element.name}
+                        >
+                          {element.name}
+                        </MenuItem>
+                      );
                     }
-                  })}
+                  })} 
 
-                  {/* {elements.prices.map(element => {
+                  {/* {elements.prices.map((element) => {
                     if (element.category === "flowers") {
                       <MenuItem
                         key={element.id}
-                        value={element.id}
+                        value={element.price}
                         name={element.name}
                       >
                         {element.name}
@@ -296,7 +312,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                       return (
                         <MenuItem
                           key={element.id}
-                          value={element.id}
+                          value={element.price}
                           name={element.name}
                         >
                           {element.name}
@@ -332,7 +348,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                       return (
                         <MenuItem
                           key={element.id}
-                          value={element.id}
+                          value={element.price}
                           name={element.name}
                         >
                           {element.name}
@@ -350,7 +366,6 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
                 <br></br>
                 <StyledTextField
                   onChange={(e) => setDetails(e.target.value)}
-                  //  className={classes.field}
                   label="Details"
                   variant="outlined"
                   color="secondary"
@@ -387,6 +402,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
               <StyledButton
                 color="primary"
                 variant="contained"
+                style={{ fontSize: "1.2rem" }}
                 endIcon={<AttachMoneyOutlinedIcon />}
                 onClick={() => {
                   setTotal(computeTotal());
@@ -403,7 +419,7 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
               variant="contained"
               endIcon={<AddShoppingCartOutlinedIcon />}
               display="flex"
-              style={{ marginLeft: "16%" }}
+              style={{ marginLeft: "18%", fontSize: "1.1rem" }}
             >
               Add to cart
             </Button>
@@ -416,16 +432,3 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
 }
 
 export default Shop;
-/* sx={{
-  //   backgroundColor: "secondary",
-  //   height: "500px",
-  //   width: "500px",
-  //   padding: "16px",
-  // }}
-  
-  // lx={{
-  //   height: 233,
-  //   width: 350,
-  //   // maxHeight: { xs: 233, md: 167 },
-  //   // maxWidth: { xs: 350, md: 250 },
-  // }}*/
