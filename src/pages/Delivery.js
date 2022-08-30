@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Typography } from "@mui/material";
 

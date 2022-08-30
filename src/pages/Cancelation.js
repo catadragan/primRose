@@ -7,13 +7,10 @@ import {
 } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-//import theme from "../theme";
-
-
 
 const Cancelation = ({activeTab, setActiveTab}) => {
-  let theme = createTheme();
-  theme = responsiveFontSizes(theme);
+   let theme = createTheme();
+   theme = responsiveFontSizes(theme);
 
   
 

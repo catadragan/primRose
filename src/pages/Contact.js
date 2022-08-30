@@ -1,22 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import React, { useState, useRef } from "react";
 import { styled } from "@mui/system";
-import { Box, Stack, IconButton, TextField, Grid } from "@mui/material";
-
+import {
+  Box,
+  TextField,
+  Grid,
+  Button,
+  Typography,
+  Container,
+} from "@mui/material";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import EmailIcon from "@mui/icons-material/Email";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import PinterestIcon from "@mui/icons-material/Pinterest";
 import Navbar from "../components/Navbar";
-import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import emailjs from "@emailjs/browser";
 
 const StyledTextField = styled(TextField)({
@@ -34,7 +28,6 @@ const Contact = ({ activeTab, setActiveTab }) => {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState(false);
   const form = useRef();
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setMessageError(false);
@@ -45,7 +38,6 @@ const Contact = ({ activeTab, setActiveTab }) => {
       console.log(message);
     }
   };
-
   function sendEmail(e) {
     e.preventDefault();
 
@@ -75,8 +67,13 @@ const Contact = ({ activeTab, setActiveTab }) => {
         <Typography variant="h2" color="primary" align="center" padding="10px">
           Contact us
         </Typography>
-
-        <Grid container justifyContent="center" alignItems="center" spacing={3} marginBottom="10%">
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          spacing={3}
+          marginBottom="10%"
+        >
           <Grid item xs={8} md={6}>
             <Box
               sx={{
@@ -139,43 +136,11 @@ const Contact = ({ activeTab, setActiveTab }) => {
           </Grid>
         </Grid>
       </Container>
+
       <Footer />
     </div>
   );
 };
-
 export default Contact;
-/*
-<br></br>
-              <IconButton aria-label="location">
-                <LocationOnOutlinedIcon />
-              </IconButton>
-              Str. Rosseti nr. 25<br></br>
-              <IconButton aria-label="phone">
-                <LocalPhoneIcon />
-              </IconButton>
-              0742058648
-              <br></br>
-              <IconButton aria-label="email">
-                <EmailIcon />
-              </IconButton>
-              contact@primrose.coms
-              <br></br>
-              <IconButton aria-label="email">
-                <AccessTimeIcon />
-              </IconButton>
-              <p> Monday-Friday: 8:00-18:00 </p>
-              <p>Saturday: 8:00-14:00 </p>
-              <p> Sunday: closed</p>
-              <br></br>
-              <IconButton aria-label="facebook">
-                <FacebookOutlinedIcon />
-              </IconButton>
-              <IconButton aria-label="instagram">
-                <InstagramIcon />
-              </IconButton>
-              <IconButton aria-label="pinterest">
-                <PinterestIcon />
-              </IconButton>
-        
-*/
+
+

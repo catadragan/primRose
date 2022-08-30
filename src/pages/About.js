@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import CarouselComp from "../components/CarouselComp";
 import Footer from "../components/Footer";
 import { Typography, Grid, Box } from "@mui/material";
 import StaffCard from "../components/StaffCard";
@@ -46,8 +45,7 @@ const About = ({ activeTab, setActiveTab }) => {
               component="img"
               alt="Flower picture."
               src={home1}
-              //src="https://i.pinimg.com/564x/55/3a/06/553a06ca7631d2c0b4a3d65964dfd899.jpg"
-            />
+              />
           </Grid>
           <Grid
             item
@@ -166,7 +164,7 @@ const About = ({ activeTab, setActiveTab }) => {
                 electronic typesetting, remaining essentially unchanged.
               </Typography>
             </Grid>
-         
+
             {/* onFocus={} */}
             <Grid item xs={8} md={6} margin="1%">
               <Box display="flex" flexDirection="row">
@@ -235,27 +233,4 @@ const About = ({ activeTab, setActiveTab }) => {
     </div>
   );
 };
-
 export default About;
-/* <Paper
-        component="p"
-        sx={{ background: "#F6C7A5", padding: 5 }}
-        elevation={5}
-        style={{ height: 200, width: 500, marginLeft: 100, marginTop: 100 }}
-      >
-        <Typography variant="subtitle1">HOW IT'S BEGINS</Typography>
-      </Paper>
-      <Typography variant="subtitle1">WHO WE ARE:</Typography>
-      <Typography variant="subtitle1">WHAT WE OFFER:</Typography>
-      <Typography variant="body1">good quality flower, arrangements</Typography>
-      <Typography variant="subtitle1">DESCRIPTION:</Typography>
-      <Typography variant="subtitle1">OUR MAIN GOALS:</Typography>
-      <Typography variant="subtitle1">OUR BENEFITS?</Typography>
-      <Typography variant="body1">
-        free shipping, over 50£ shipping in several hours in our town,secure
-        payment 1000+
-      </Typography>
-      <Typography variant="body1"> sattisfied customers </Typography>
-      <Typography variant="subtitle1">
-        STAFF PICTURES : owner manager and floral designer
-      </Typography> */

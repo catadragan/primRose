@@ -16,11 +16,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
+import { useHistory } from "react-router-dom";
 
 const deleteCartItems = () => {};
 const deleteBouquetType = () => {};
 
 const ShoppingCart = ({ activeTab, setActiveTab }) => {
+  const navigator = useHistory();
   return (
     <CartStore.Consumer>
       {({ cartItems, addToCart, removeFromCart }) => {
@@ -28,19 +30,20 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
           <div>
             <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
             <div className="page-content" style={{ padding: "10%" }}>
-              <Card
-                style={{
-                  background: "#C0D7B0",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "5%"
-                }}
-                height="64vh"
-                
-              >
-                {cartItems.length === 0 && <div>Shopping Cart is empty!</div>}
-              </Card>
+              {cartItems.length === 0 && (
+                <Card
+                  style={{
+                    background: "#C0D7B0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "5%",
+                  }}
+                  height="64vh"
+                >
+                  <Typography>Shopping Cart is empty!</Typography>
+                </Card>
+              )}
 
               {cartItems.length !== 0 && (
                 <Box sx={{ flexGrow: 1 }}>
@@ -62,7 +65,6 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                   </Grid>
                 </Box>
               )}
-
               {cartItems.map((item) => (
                 <Card
                   justify-content="center"
@@ -175,21 +177,42 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
                   </Box>
                 </Card>
               ))}
-              <Button
-                type="submit"
-                color="secondary"
-                variant="contained"
-                style={{
-                  margin: "10%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  textAlign: "center",
-                  marginLeft: "50%",
-                }}
-              >
-                Place order
-              </Button>
+              {cartItems.length !== 0 ? (
+                <Button
+                  type="submit"
+                  color="secondary"
+                  variant="contained"
+                  style={{
+                    margin: "10%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    marginLeft: "40%",
+                  }}
+                >
+                  Place order
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  color="secondary"
+                  variant="contained"
+                  style={{
+                    margin: "10%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    marginLeft: "45%",
+                  }}
+                  onClick={(e, val) => {
+                    navigator.push(`/Pre-made Bouquets`);
+                  }}
+                >
+                  Shop a bouquet
+                </Button>
+              )}
             </div>
             <Footer />
           </div>
@@ -198,5 +221,4 @@ const ShoppingCart = ({ activeTab, setActiveTab }) => {
     </CartStore.Consumer>
   );
 };
-
 export default ShoppingCart;

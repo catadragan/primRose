@@ -25,12 +25,10 @@ import { useHistory } from "react-router-dom";
 
 const Home = ({ activeTab, setActiveTab }) => {
   const navigator = useHistory();
-
   return (
     <div className="page-content">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <CarouselComp />
-
       <Box
         bgcolor="#FFF7ED"
         display="flex"
@@ -62,7 +60,7 @@ const Home = ({ activeTab, setActiveTab }) => {
               component="img"
               alt="Flower picture."
               src={home1}
-              //src="https://i.pinimg.com/564x/55/3a/06/553a06ca7631d2c0b4a3d65964dfd899.jpg"
+              
             />
           </Grid>
           <Grid
@@ -168,7 +166,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 variant="contained"
                 color="secondary"
                 onClick={(e, val) => {
-                  navigator.push(`/shop`);
+                  navigator.push(`/Custom Bouquets`);
                 }}
               >
                 Custom Bouquets
@@ -207,7 +205,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 variant="contained"
                 color="secondary"
                 onClick={(e, val) => {
-                  navigator.push(`/shop2`);
+                  navigator.push(`/Pre-made Bouquets`);
                 }}
               >
                 Pre-made Bouquets
@@ -351,7 +349,7 @@ const Home = ({ activeTab, setActiveTab }) => {
             justifyContent="center"
             alignItems="center"
             flexWrap="nowrap"
-            style={{ margin: "10%" }}
+            style={{ margin: "8%" }}
           >
             <Grid item xs={8} md={6}>
               <Typography variant="h1">Why to choose us?</Typography>
@@ -364,11 +362,13 @@ const Home = ({ activeTab, setActiveTab }) => {
                 electronic typesetting, remaining essentially unchanged.
               </Typography>
             </Grid>
+
             <Divider
               orientation="vertical"
               flexItem
-              color="white"
+              color="black"
               fontSize="4rem"
+              style={{margin:"5px", marginRight:"20px"}}
             />
             {/* onFocus={} */}
             <Grid item xs={8} md={6} margin="1%">
@@ -376,7 +376,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 <CountUp
                   end={10}
                   duration={2}
-                  style={{ color: "white", fontSize: "5rem" }}
+                  style={{ color: "white",fontFamily: "Aboreto", fontSize: "6rem" }}
                 />
                 <Typography
                   style={{
@@ -395,7 +395,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 <CountUp
                   end={2000}
                   duration={2}
-                  style={{ color: "white", fontSize: "5rem" }}
+                  style={{ color: "white",fontFamily: "Aboreto", fontSize: "6rem" }}
                 />
                 <Typography
                   style={{
@@ -414,7 +414,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 <CountUp
                   end={975}
                   duration={2}
-                  style={{ color: "white", fontSize: "5rem" }}
+                  style={{ color: "white",fontFamily: "Aboreto", fontSize: "6rem" }}
                 />
                 <Typography
                   style={{
@@ -430,6 +430,7 @@ const Home = ({ activeTab, setActiveTab }) => {
                 </Typography>
               </Box>
             </Grid>
+
           </Grid>
         </Box>
       </Box>
@@ -453,26 +454,26 @@ const Home = ({ activeTab, setActiveTab }) => {
           {[
             {
               img: Ale,
-              text: "skdhfkjadhfladhvlafdaklkdbfkd",
-              name: "Alexandra Turian",
+              text: "Best flower shop.   I would kindly recommend this beautiful flower shop due to all the professional way of giving attention and high quality to the customers.",
+              name: "Alexandra ",
               job: "customer",
             },
             {
               img: Victor,
-              text: "skdhfkjadhfladhvlafdaklkdbfkd ",
+              text: " I customized the desired flower bouquet, and they surprised me with the results, as no one else.I'll come back with the first occasion due to nice collaboration and quality of the services. ",
               name: "Victor ",
               job: "customer",
             },
             {
               img: AleHerembas,
-              text: "skdhfkjadhfladhvlafdaklkdbfkd",
-              name: "Alexandra Herembas",
+              text: "I ordered online last time, and I was surprised by the fast delivery! The bouquet was even more beautiful than I expected!",
+              name: "Rebeca",
               job: "VIP customer",
             },
             {
               img: Alex,
-              text: "skdhfkjadhfladhvlafdaklkdbfkd",
-              name: "Alexandru Fodorean",
+              text: "Great job guys, it’s a pleasure for me to navigate on this site to choose beautiful flowers. Your work is awesome!",
+              name: "Alex",
               job: "customer",
             },
           ].map((item) => (
@@ -500,6 +501,5 @@ const Home = ({ activeTab, setActiveTab }) => {
     </div>
   );
 };
-
 export default Home;
-//<Divider variant="middle" />
+

@@ -29,13 +29,10 @@ const ExpandMore = styled((props) => {
 }));
 
 const CardBouquet = ({ bouquet }) => {
-  
   const [expanded, setExpanded] = useState(false);
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return (
     <CartStore.Consumer>
       {(contextState) => {
@@ -54,7 +51,6 @@ const CardBouquet = ({ bouquet }) => {
                   image={require(`../images/${bouquet.src}`)}
                   alt="floral bouquet"
                 />
-
                 <CardContent align="center">
                   <Typography gutterBottom variant="h5" component="div">
                     {bouquet.title}
@@ -99,5 +95,4 @@ const CardBouquet = ({ bouquet }) => {
     </CartStore.Consumer>
   );
 };
-
 export default CardBouquet;

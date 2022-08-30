@@ -1,5 +1,5 @@
 import React from "react";
-import { createTheme } from "@mui/system";
+import { createTheme, ThemeProvider } from "@mui/system";
 
 const theme = createTheme({
   palette: {
@@ -18,7 +18,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Handlee",
-    h1:{
+    h1: {
       fontSize: "1em",
     },
     subtitle1: {
@@ -28,7 +28,8 @@ const theme = createTheme({
       fontWeight: 500,
     },
     button: {
-      fontStyle: 'italic',
+       fontStyle: "italic",
+       
     },
   },
 });

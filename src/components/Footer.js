@@ -1,5 +1,4 @@
 import * as React from "react";
-//import { useState } from "react";
 import { Box, Container } from "@mui/system";
 import { Typography, Grid, Stack, IconButton, Link } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -11,27 +10,15 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 import { useHistory } from "react-router-dom";
 
 const Footer = ({ links }) => {
-  /*  const [isHover, setIsHover] = useState(false);
-
-  const handleMouseEnter = () => {
-     setIsHover(true);
-  };
-
-  const handleMouseLeave = () => {
-     setIsHover(false);
-  };
-*/
-
   const navigator = useHistory();
-
   return (
     <div className="footer">
       <Box sx={{ bgcolor: "#F5D9B6", color: "black" }}>
         <Container links={links} maxWidth="lg" sx={{ py: 2 }}>
-          <Grid container  justifyContent="center" spacing={4}>
+          <Grid container justifyContent="center" spacing={4}>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography fontWeight= "bold">MENU</Typography>
+                <Typography fontWeight="bold">MENU</Typography>
 
                 <Typography variant="body1">
                   <Link
@@ -39,7 +26,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/cancelation`)}}                    
+                      navigator.push(`/cancelation`);
+                    }}
                   >
                     Cancellation policy
                   </Link>
@@ -50,7 +38,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/delivery`)}} 
+                      navigator.push(`/delivery`);
+                    }}
                   >
                     Local delivery
                   </Link>
@@ -61,7 +50,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/privacy`)}} 
+                      navigator.push(`/privacy`);
+                    }}
                   >
                     Privacy policy
                   </Link>
@@ -72,7 +62,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/terms`)}} 
+                      navigator.push(`/terms`);
+                    }}
                   >
                     Terms and conditions
                   </Link>
@@ -80,17 +71,16 @@ const Footer = ({ links }) => {
               </Stack>
             </Grid>
             <Grid item xs={6} md={3}>
-              <Stack spacing={.5}>
-                <Typography fontWeight= "bold">PAGES</Typography>
+              <Stack spacing={0.5}>
+                <Typography fontWeight="bold">PAGES</Typography>
                 <Typography variant="body1">
                   <Link
                     color="inherit"
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/home`)}} 
-                    //onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave}
+                      navigator.push(`/home`);
+                    }}
                   >
                     Home
                   </Link>
@@ -102,7 +92,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/shop`)}} 
+                      navigator.push(`/Custom Bouquets`);
+                    }}
                   >
                     Customable Bouquets
                   </Link>
@@ -114,7 +105,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/shop2`)}} 
+                      navigator.push(`/Pre-made Bouquets`);
+                    }}
                   >
                     Bouquets
                   </Link>
@@ -126,7 +118,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/about`)}} 
+                      navigator.push(`/about`);
+                    }}
                   >
                     About us
                   </Link>
@@ -138,7 +131,8 @@ const Footer = ({ links }) => {
                     style={{ textDecoration: "none" }}
                     href="#"
                     onClick={(e, val) => {
-                      navigator.push(`/contact`)}} 
+                      navigator.push(`/contact`);
+                    }}
                   >
                     Contact us
                   </Link>
@@ -147,7 +141,7 @@ const Footer = ({ links }) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography fontWeight= "bold">OPENING HOURS</Typography>
+                <Typography fontWeight="bold">OPENING HOURS</Typography>
                 <Typography variant="body1">
                   Monday - Friday : 08:00 - 18:00
                 </Typography>
@@ -159,7 +153,7 @@ const Footer = ({ links }) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Stack spacing={2}>
-                <Typography fontWeight= "bold">CONTACT US </Typography>
+                <Typography fontWeight="bold">CONTACT US </Typography>
                 <Typography variant="body1">
                   <LocationOnOutlinedIcon />
                   Str. Rosseti nr. 25
@@ -173,7 +167,7 @@ const Footer = ({ links }) => {
                   0742058648
                 </Typography>
 
-                <Typography fontWeight= "bold">FOLLOW US</Typography>
+                <Typography fontWeight="bold">FOLLOW US</Typography>
                 <Typography variant="body1">
                   <Link
                     color="inherit"
@@ -221,5 +215,4 @@ const Footer = ({ links }) => {
     </div>
   );
 };
-
 export default Footer;

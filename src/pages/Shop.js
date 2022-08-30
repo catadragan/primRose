@@ -9,7 +9,6 @@ import {
   ButtonGroup,
   Container,
   Box,
-  Stack,
   TextField,
   MenuItem,
   Grid,
@@ -18,6 +17,7 @@ import { styled } from "@mui/system";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import shop1 from "../images/shop1.jpg";
+import { CartStore } from "../App";
 
 const colorsListHash = {
   pink: "#e91e63",
@@ -79,355 +79,306 @@ function Shop({ activeTab, setActiveTab, bouquet }) {
   };
   const handleChangeShape = (event) => {
     setShape(event.target.value);
-    setSelectedHandler("event", event.target.value);
+    setSelectedHandler("shape", event.target.value);
   };
   const handleChangeFlowers = (event) => {
     const value = event.target.value;
     setFlowers(typeof value === "string" ? value.split(",") : value);
-    setSelectedHandler("event", event.target.value);
+    setSelectedHandler("flowers", event.target.value);
   };
   const handleChangeGreenery = (event) => {
     setGreenery(event.target.value);
-    setSelectedHandler("event", event.target.value);
+    setSelectedHandler("greenery", event.target.value);
   };
   const handleChangeWrapping = (event) => {
     setWrapping(event.target.value);
-    setSelectedHandler("event", event.target.value);
+    setSelectedHandler("wrapping", event.target.value);
   };
   function changeColor(color) {
     setSelectedColor(color.hex);
-    setSelectedHandler("event", event.target.value);
+    setSelectedHandler("color", color.target.value);
   }
 
   const computeTotal = () => {
     const values = [...selected.values()];
-    const sum = values.reduce(
-      (partialSum, a) => parseInt(partialSum) + parseInt(a),
-      0
-    );
-    return sum;
+    let totalSum = 0;
+    [...selected.keys()].forEach((objectKey) => {
+      console.log(objectKey);
+      if (objectKey === "flowers") {
+        totalSum += selected
+          .get(objectKey)
+          .reduce((partialSum, a) => parseInt(partialSum) + parseInt(a), 0);
+      } else {
+        totalSum += parseInt(selected.get(objectKey));
+      }
+    });
+    console.log(totalSum);
+    return totalSum;
   };
   const setSelectedHandler = (category, id) => {
     setSelected((prev) => new Map([...prev, [category, id]]));
   };
 
   return (
-    <div className="page-content">
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+    <CartStore.Consumer>
+      {(contextState) => {
+        console.log(contextState);
+        let cartItems = contextState.cartItems;
+        let addToCart = contextState.addToCart;
 
-      <Container>
-        <Typography variant="h2" color="primary" align="center" padding="3%">
-          Customise your bouquet
-        </Typography>
-        <Grid container marginBottom="10%">
-          <Grid item xs={12} md={6}>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-              <Container>
-                <Box alignItems="center" justifyContent="center" display="flex">
-                  {elements.prices.map((element) => {
-                    if (element.category === "size") {
-                      return (
-                        <Button
-                          color="primary"
-                          variant="contained"
-                          style={{
-                            margin: "10px",
-                            padding: "10px 50px",
-                            fontSize: "1.2rem",
-                          }}
-                          key={element.id}
-                          onClick={() => {
-                            setSelectedHandler(element.category, element.price);
-                          }}
-                        >
-                          {element.name}
-                        </Button>
-                      );
-                    }
-                  })}
-                </Box>
+        return (
+          <div className="page-content">
+            <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                <Box
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  padding="5%"
-                >
-                  <CirclePicker
-                    width={"500px"}
-                    circleSize={60}
-                    circleSpacing={10}
-                    colors={colorsListHash}
-                    color={selectedColor}
-                    alignItems="center"
-                    justifyItems="center"
-                    style={{ marginLeft: "40px" }}
-                    //onChange={(updatedColor) => setColor(updatedColor)}
-                    onChangeComplete={changeColor}
-                  />
-                </Box>
-
-                <br></br>
-                <StyledTextField
-                  label="Choose event"
-                  select
-                  value={eventt}
-                  onChange={handleChangeEventt}
-                  fullWidth
-                >
-                  {elements.prices.map((element) => {
-                    if (element.category === "event") {
-                      return (
-                        <MenuItem
-                          key={element.id}
-                          value={element.price}
-                          name={element.name}
-                        >
-                          {element.name}
-                        </MenuItem>
-                      );
-                    }
-                  })}
-                  {/* <MenuItem value="Wedding">Wedding</MenuItem>
-                  <MenuItem value="Engagement">Engagement</MenuItem>
-                  <MenuItem value="Christmas">Christmas</MenuItem>
-                  <MenuItem value="New Eve">New Eve</MenuItem>
-                  <MenuItem value="Easter">Easter</MenuItem>
-                  <MenuItem value="Valentine">Valentine's day</MenuItem>
-                  <MenuItem value="Mother's day">Mother's day</MenuItem>
-                  <MenuItem value="Graduation">Graduation</MenuItem> */}
-                </StyledTextField>
-
-                <br></br>
-                <StyledTextField
-                  label="Choose shape"
-                  select
-                  value={shape}
-                  onChange={handleChangeShape}
-                  fullWidth
-                >
-                  {elements.prices.map((element) => {
-                    if (element.category === "shape") {
-                      return (
-                        <MenuItem
-                          key={element.id}
-                          value={element.id}
-                          name={element.name}
-                        >
-                          {element.name}
-                        </MenuItem>
-                      );
-                    }
-                  })}
-
-                  {/* <MenuItem value="Asymmetric">Asymmetric</MenuItem>
-                  <MenuItem value="Heart">Heart</MenuItem>
-                  <MenuItem value="Pyramidal">Pyramidal</MenuItem>
-                  <MenuItem value="Round">Round</MenuItem> */}
-                </StyledTextField>
-
-                <br></br>
-                <StyledTextField
-                  label="Choose flowers"
-                  select
-                  value={flowers}
-                  onChange={handleChangeFlowers}
-                  fullWidth
-                  SelectProps={{
-                    multiple: true,
-                  }}
-                >
-                 {elements.prices.map((element) => {
-                    if (element.category === "flowers") {
-                      let sumTotal = 0;
-                      sumTotal = sumTotal +  element.price;
-                      // const names =  new Array([]);
-                      //Array.push(element.name);
-                      return (
-                        <MenuItem
-                          key={element.id}
-                          value={sumTotal}
-                          name={element.name}
-                        >
-                          {element.name}
-                        </MenuItem>
-                      );
-                    }
-                  })} 
-
-                  {/* {elements.prices.map((element) => {
-                    if (element.category === "flowers") {
-                      <MenuItem
-                        key={element.id}
-                        value={element.price}
-                        name={element.name}
-                      >
-                        {element.name}
-                      </MenuItem>;
-                    }
-                  })} */}
-
-                  {/* <MenuItem value="Alstroemeria">Alstroemeria</MenuItem>
-                  <MenuItem value="Amaryllis">Amaryllis</MenuItem>
-                  <MenuItem value="Anemone">Anemone</MenuItem>
-                  <MenuItem value="Calla">Calla Lily</MenuItem>
-                  <MenuItem value="Carnation">Carnations</MenuItem>
-                  <MenuItem value="Chrysanthemum">Chrysanthemum</MenuItem>
-                  <MenuItem value="Cymbidium">Cymbidium</MenuItem>
-                  <MenuItem value="Daffodils">Daffodils</MenuItem>
-                  <MenuItem value="Dahlia">Dahlia</MenuItem>
-                  <MenuItem value="Delphinium">Delphinium</MenuItem>
-                  <MenuItem value="Eustoma">Eustoma</MenuItem>
-                  <MenuItem value="Freesia">Freesia</MenuItem>
-                  <MenuItem value="Gerbera">Gerbera</MenuItem>
-                  <MenuItem value="Gladiolus">Gladiolus</MenuItem>
-                  <MenuItem value="Hyacinth">Hyacinth</MenuItem>
-                  <MenuItem value="Hydrangea">Hydrangea</MenuItem>
-                  <MenuItem value="Hypericum">Hypericum</MenuItem>
-                  <MenuItem value="Iris">Iris</MenuItem>
-                  <MenuItem value="Lavender">Lavender</MenuItem>
-                  <MenuItem value="Lilac">Lilac</MenuItem>
-                  <MenuItem value="Miniroses">Miniroses</MenuItem>
-                  <MenuItem value="Ornithogalum">Ornithogalum</MenuItem>
-                  <MenuItem value="Peony">Peony</MenuItem>
-                  <MenuItem value="Phalaenopsis">Phalaenopsis</MenuItem>
-                  <MenuItem value="Ranunculus">Ranunculus</MenuItem>
-                  <MenuItem value="Stock">Stock</MenuItem>
-                  <MenuItem value="Garden">Rose garden</MenuItem>
-                  <MenuItem value="Roses">Roses</MenuItem>
-                  <MenuItem value="Tulips">Tulips</MenuItem>
-                  <MenuItem value="Wax">Wax</MenuItem> */}
-                </StyledTextField>
-
-                <br></br>
-                <StyledTextField
-                  label="Choose greenery"
-                  select
-                  value={greenery}
-                  onChange={handleChangeGreenery}
-                  fullWidth
-                >
-                  {elements.prices.map((element) => {
-                    if (element.category === "greenery") {
-                      return (
-                        <MenuItem
-                          key={element.id}
-                          value={element.price}
-                          name={element.name}
-                        >
-                          {element.name}
-                        </MenuItem>
-                      );
-                    }
-                  })}
-
-                  {/* <MenuItem value="Aspidistra">Aspidistra</MenuItem>
-                  <MenuItem value="Cinereea">Eucalyptus Cinereea</MenuItem>
-                  <MenuItem value="Populus">Eucalyptus Populus</MenuItem>
-                  <MenuItem value="Dusty">Dusty Miller</MenuItem>
-                  <MenuItem value="Italian">Italian Ruscus</MenuItem>
-                  <MenuItem value="Magnolia">Magnolia Leaf</MenuItem>
-                  <MenuItem value="Monstera">Monstera</MenuItem>
-                  <MenuItem value="Olive">Olive</MenuItem>
-                  <MenuItem value="Pistachia">Pistachia</MenuItem>
-                  <MenuItem value="Ruscus">Ruscus</MenuItem>
-                  <MenuItem value="Salal">Salal</MenuItem>
-                  <MenuItem value="No">No greenery</MenuItem> */}
-                </StyledTextField>
-
-                <br></br>
-                <StyledTextField
-                  label="Choose wrapping"
-                  select
-                  value={wrapping}
-                  onChange={handleChangeWrapping}
-                  fullWidth
-                >
-                  {elements.prices.map((element) => {
-                    if (element.category === "wrapping") {
-                      return (
-                        <MenuItem
-                          key={element.id}
-                          value={element.price}
-                          name={element.name}
-                        >
-                          {element.name}
-                        </MenuItem>
-                      );
-                    }
-                  })}
-
-                  {/* <MenuItem value="Box">Box</MenuItem>
-                  <MenuItem value="Ribbon">Ribbon</MenuItem>
-                  <MenuItem value="Vase">Vase</MenuItem>
-                  <MenuItem value="Wrapping">Wrapping</MenuItem> */}
-                </StyledTextField>
-
-                <br></br>
-                <StyledTextField
-                  onChange={(e) => setDetails(e.target.value)}
-                  label="Details"
-                  variant="outlined"
-                  color="secondary"
-                  fullWidth
-                  multiline
-                  rows={4}
-                  error={detailsError}
-                ></StyledTextField>
-              </Container>
-            </form>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Box
-              height="700px"
-              width="600px"
-              padding="16px"
-              component="img"
-              alignItems="center"
-              justifyContent="center"
-              display="block"
-              margin="auto"
-              style={{ objectFit: "none" }}
-              alt="Your bouquet might look like this one."
-              src={shop1}
-            />
-
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <StyledButton
+            <Container>
+              <Typography
+                variant="h2"
                 color="primary"
-                variant="contained"
-                style={{ fontSize: "1.2rem" }}
-                endIcon={<AttachMoneyOutlinedIcon />}
-                onClick={() => {
-                  setTotal(computeTotal());
-                }}
+                align="center"
+                padding="3%"
               >
-                Show Price
-              </StyledButton>
-              <StyledTextField value={total}>{total}</StyledTextField>
-            </Box>
+                Customise your bouquet
+              </Typography>
+              <Grid container marginBottom="10%">
+                <Grid item xs={12} md={6}>
+                  <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+                    <Container>
+                      <Box
+                        alignItems="center"
+                        justifyContent="center"
+                        display="flex"
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "size") {
+                            return (
+                              <Button
+                                color="primary"
+                                variant="contained"
+                                style={{
+                                  margin: "10px",
+                                  padding: "10px 50px",
+                                  fontSize: "1.2rem",
+                                }}
+                                key={element.id}
+                                onClick={() => {
+                                  setSelectedHandler(
+                                    element.category,
+                                    element.price
+                                  );
+                                }}
+                              >
+                                {element.name}
+                              </Button>
+                            );
+                          }
+                        })}
+                      </Box>
 
-            <Button
-              type="submit"
-              color="secondary"
-              variant="contained"
-              endIcon={<AddShoppingCartOutlinedIcon />}
-              display="flex"
-              style={{ marginLeft: "18%", fontSize: "1.1rem" }}
-            >
-              Add to cart
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
-      <Footer />
-    </div>
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        padding="5%"
+                      >
+                        <CirclePicker
+                          width={"500px"}
+                          circleSize={60}
+                          circleSpacing={10}
+                          colors={colorsListHash}
+                          color={selectedColor}
+                          alignItems="center"
+                          justifyItems="center"
+                          style={{ marginLeft: "40px" }}
+                          onChangeComplete={changeColor}
+                        />
+                      </Box>
+
+                      <br></br>
+                      <StyledTextField
+                        label="Choose event"
+                        select
+                        value={eventt}
+                        onChange={handleChangeEventt}
+                        fullWidth
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "event") {
+                            return (
+                              <MenuItem
+                                key={element.id}
+                                value={element.price}
+                                name={element.name}
+                              >
+                                {element.name}
+                              </MenuItem>
+                            );
+                          }
+                        })}
+                      </StyledTextField>
+
+                      <br></br>
+                      <StyledTextField
+                        label="Choose shape"
+                        select
+                        value={shape}
+                        onChange={handleChangeShape}
+                        fullWidth
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "shape") {
+                            return (
+                              <MenuItem
+                                key={element.id}
+                                value={element.price}
+                                name={element.name}
+                              >
+                                {element.name}
+                              </MenuItem>
+                            );
+                          }
+                        })}
+                      </StyledTextField>
+
+                      <br></br>
+                      <StyledTextField label="Choose flowers"
+                        select
+                        value={flowers}
+                        onChange={handleChangeFlowers}
+                        fullWidth
+                        SelectProps={{
+                          multiple: true,
+                        }}
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "flowers") {
+                            return (
+                              <MenuItem
+                                key={element.id}
+                                value={element.id}
+                                name={element.name}
+                              >
+                                {element.name}
+                              </MenuItem>
+                            );
+                          }
+                        })}
+                      </StyledTextField>
+
+                      <br></br>
+                      <StyledTextField label="Choose greenery"
+                        select
+                        value={greenery}
+                        onChange={handleChangeGreenery}
+                        fullWidth
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "greenery") {
+                            return (
+                              <MenuItem
+                                key={element.id}
+                                value={element.id}
+                                name={element.name}
+                              >
+                                {element.name}
+                              </MenuItem>
+                            );
+                          }
+                        })}
+                      </StyledTextField>
+
+                      <br></br>
+                      <StyledTextField
+                        label="Choose wrapping"
+                        select
+                        value={wrapping}
+                        onChange={handleChangeWrapping}
+                        fullWidth
+                      >
+                        {elements.prices.map((element) => {
+                          if (element.category === "wrapping") {
+                            return (
+                              <MenuItem
+                                key={element.id}
+                                value={element.id}
+                                name={element.name}
+                              >
+                                {element.name}
+                              </MenuItem>
+                            );
+                          }
+                        })}
+                      </StyledTextField>
+
+                      <br></br>
+                      <StyledTextField
+                        onChange={(e) => setDetails(e.target.value)}
+                        label="Details"
+                        variant="outlined"
+                        color="secondary"
+                        fullWidth
+                        multiline
+                        rows={4}
+                        error={detailsError}
+                      ></StyledTextField>
+                    </Container>
+                  </form>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <Box
+                    height="700px"
+                    width="600px"
+                    padding="16px"
+                    component="img"
+                    alignItems="center"
+                    justifyContent="center"
+                    display="block"
+                    margin="auto"
+                    style={{ objectFit: "none" }}
+                    alt="Your bouquet might look like this one."
+                    src={shop1}
+                  />
+
+                  <Box
+                    display="flex"
+                    flexDirection="row"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <StyledButton
+                      color="primary"
+                      variant="contained"
+                      style={{ fontSize: "1.2rem" }}
+                      endIcon={<AttachMoneyOutlinedIcon />}
+                      onClick={() => {
+                        setTotal(computeTotal());
+                      }}
+                    >
+                      Show Price
+                    </StyledButton>
+                    <StyledTextField value={total}>{total}</StyledTextField>
+                  </Box>
+
+                  <Button
+                    type="submit"
+                    color="secondary"
+                    variant="contained"
+                    endIcon={<AddShoppingCartOutlinedIcon />}
+                    display="flex"
+                    style={{ marginLeft: "18%", fontSize: "1.1rem" }}
+                    onClick={() => addToCart(bouquet, cartItems)}
+                  >
+                    Add to cart
+                  </Button>
+                </Grid>
+              </Grid>
+            </Container>
+            
+            <Footer />
+          </div>
+        );
+      }}
+    </CartStore.Consumer>
   );
 }
 

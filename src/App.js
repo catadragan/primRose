@@ -11,9 +11,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ShoppingCart from "./pages/ShoppingCart";
-import './App.css'
-
-
+import "./App.css";
 
 export const CartStore = React.createContext([]);
 const theme = createTheme({
@@ -38,12 +36,10 @@ const theme = createTheme({
 
 const App = () => {
   const [activeTab, setActiveTab] = useState(0);
-
+  
   const addToCart = (bouquet, cartItems) => {
-    console.log("random", cartItems);
     let newCartItems = cartItems;
     const exist = cartItems.find((x) => x.id === bouquet.id);
-
     if (exist) {
       console.log(exist);
       newCartItems = cartItems.map((x) => {
@@ -52,7 +48,6 @@ const App = () => {
     } else {
       newCartItems = [...cartItems, { ...bouquet, qty: 1 }];
     }
-    
     setCartStoreState((prevState) => ({
       ...prevState,
       cartItems: newCartItems,
@@ -69,19 +64,19 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-          <Route exact path="/">
+            <Route exact path="/">
               <Home activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-            <Route  path="/home">
+            <Route path="/home">
               <Home activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
             <Route path="/shopping-cart">
               <ShoppingCart activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-            <Route path="/shop">
+            <Route path="/Custom Bouquets">
               <Shop activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
-            <Route path="/shop2">
+            <Route path="/Pre-made Bouquets">
               <Shop2 activeTab={activeTab} setActiveTab={setActiveTab} />
             </Route>
             <Route path="/about">
@@ -110,4 +105,3 @@ const App = () => {
 };
 
 export default App;
-
